@@ -1,0 +1,16 @@
+{
+    // Starts Statac's language server. `statac` is looked for on the path,
+    // then where Homebrew, the install script, Cargo, Scoop and winget put
+    // it. Give its whole path here to use another.
+    "command": ["statac", "lsp"],
+
+    // A site's settings, front matter, writing and data, and its templates.
+    // The server starts only for a file inside a Statac site.
+    "selector": "text.html.markdown | source.yaml | source.json | text.html | text.xml",
+
+    // Where typing `@`, `(`, `#`, `/` and the like offers completions,
+    // writing included: Sublime offers none in plain text otherwise.
+    "auto_complete_selector": "text.html.markdown | source.yaml | text.html | text.xml",
+
+    "schemes": ["file"],
+}

@@ -1,0 +1,39 @@
+{
+  "contributions": {
+    "settings": [
+      {
+        "file_patterns": ["/LSP-statac.sublime-settings"],
+        "schema": {
+          "$id": "sublime://settings/LSP-statac",
+          "definitions": {
+            "PluginConfig": {
+              "properties": {}
+            }
+          },
+          "allOf": [
+            {"$ref": "sublime://settings/LSP-plugin-base"},
+            {"$ref": "sublime://settings/LSP-statac#/definitions/PluginConfig"}
+          ]
+        }
+      },
+      {
+        "file_patterns": ["/*.sublime-project"],
+        "schema": {
+          "properties": {
+            "settings": {
+              "properties": {
+                "LSP": {
+                  "properties": {
+                    "LSP-statac": {
+                      "$ref": "sublime://settings/LSP-statac#/definitions/PluginConfig"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
