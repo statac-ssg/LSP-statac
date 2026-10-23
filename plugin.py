@@ -51,7 +51,12 @@ def found(program: str) -> str | None:
     if on_path:
         return on_path
     for folder in INSTALLED:
-        at = shutil.which(program, path=os.path.expanduser(folder))
+        folder = os.path.expanduser(folder)
+        # Without LOCALAPPDATA the winget folder is relative, and would be
+        # read from wherever Sublime Text was started.
+        if not os.path.isabs(folder):
+            continue
+        at = shutil.which(program, path=folder)
         if at:
             return at
     return None
