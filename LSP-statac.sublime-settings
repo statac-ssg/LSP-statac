@@ -4,9 +4,9 @@
     // it. Give its whole path here to use another.
     "command": ["statac", "lsp"],
 
-    // A site's settings, front matter, writing and data, and its templates.
-    // The server starts only for a file inside a Statac site.
-    "selector": "text.html.markdown | source.yaml | source.json | text.html | text.xml",
+    // A site's settings, front matter, writing and data, its templates, and
+    // `published.txt`. The server starts only for a file inside a Statac site.
+    "selector": "text.html.markdown | source.yaml | source.json | text.html | text.xml | text.plain",
 
     // Where typing `@`, `(`, `#`, `/` and the like offers completions,
     // writing included: Sublime offers none in plain text otherwise.
