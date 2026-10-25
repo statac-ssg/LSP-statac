@@ -8,8 +8,10 @@ from LSP.plugin import LspPlugin
 from LSP.plugin import OnPreStartContext
 from LSP.plugin import PluginStartError
 
-# The file that makes a folder a Statac site.
+# What makes a folder a Statac site, as Statac reads it: its settings, or
+# a folder of its pages.
 SETTINGS = "statac.yaml"
+CONTENT = "content"
 
 # Where each way of installing Statac puts it, for an editor started
 # without the shell's path: Homebrew, the install script, Cargo, Scoop and
@@ -32,12 +34,14 @@ NOT_FOUND = (
 
 def in_a_site(path: str | None) -> bool:
     """Whether the file at `path` is in a Statac site: a folder above it
-    holds `statac.yaml`."""
+    holds `statac.yaml` or a `content` folder."""
     if not path:
         return False
     folder = os.path.dirname(os.path.abspath(path))
     while True:
         if os.path.isfile(os.path.join(folder, SETTINGS)):
+            return True
+        if os.path.isdir(os.path.join(folder, CONTENT)):
             return True
         above = os.path.dirname(folder)
         if above == folder:
