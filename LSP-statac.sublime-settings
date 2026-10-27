@@ -12,6 +12,4 @@
     // Sublime offers none in prose, such as a page's content, unless it is
     // listed here.
     "auto_complete_selector": "text.html.markdown | source.yaml | text.html | text.xml",
-
-    "schemes": ["file"],
 }
